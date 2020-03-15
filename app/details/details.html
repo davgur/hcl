@@ -1,0 +1,19 @@
+<div class="card card-default" style="height: 100%">
+  <button ng-click="vm.closeSummary()" type="button" class="btn btn-danger btn-lg closeBtn">X</button>
+  <div class="card-header">{{vm.widget.name}}</div>
+  <div class="card-body ">
+    <div class="list-group">
+      <div class="row">
+        <div class="col-sm-5">Key</div>
+        <div class="col-sm-7">Value</div>
+      </div>
+      <div ng-repeat="field in vm.widget.fields" class="list-group-item">
+        <div class="row">
+          <div class="col-sm-5">{{field.key}}</div>
+          <div class="col-sm-7">{{field.value}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">Panel footer</div>
+</div>

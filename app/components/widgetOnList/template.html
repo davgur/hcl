@@ -1,0 +1,7 @@
+<div class="card border-dark {{vm.isSelected ? 'bg-primary': 'bg-light'}}">
+  <div class="card-body">
+    <h5 class="card-title">{{vm.widget.name}}</h5>
+    <a href="#/{{vm.widget.id}}" class="btn btn-primary">Details</a>
+    <button ng-click="vm.remove(vm.widget.id)" class="btn btn-danger">Remove</button>
+  </div>
+</div>
