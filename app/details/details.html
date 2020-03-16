@@ -1,5 +1,5 @@
 <div class="card card-default" style="height: 100%">
-  <button ng-click="vm.closeSummary()" type="button" class="btn btn-danger btn-lg closeBtn">X</button>
+  <a ui-sref="home()" type="button" class="btn btn-danger btn-lg closeBtn">X</a>
   <div class="card-header">{{vm.widget.name}}</div>
   <div class="card-body ">
     <div class="list-group">
@@ -15,5 +15,5 @@
       </div>
     </div>
   </div>
-  <div class="card-footer">Panel footer</div>
+  <div class="card-footer"><a ui-sref="edit({id: vm.widget.id})" class="btn-primary btn-lg btn-block">Edit widget</a></div>
 </div>

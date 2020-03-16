@@ -4,6 +4,19 @@
     <div class="list-group">
       <div class="list-group-item">
         <div class="row">
+          <div class="col-sm-5">
+            <input type="text" value="name" required disabled />
+          </div>
+          <div class="col-sm-6">
+            <input type="text" ng-model="vm.widget.name" required />
+          </div>
+          <div class="col-sm-1">
+            <input type="button" ng-click="vm.removeField($index)" value="x" class="btn-error btn-sm" />
+          </div>
+        </div>
+      </div>
+      <div class="list-group-item">
+        <div class="row">
           <div class="col-sm-5">Key</div>
           <div class="col-sm-7">Value</div>
         </div>

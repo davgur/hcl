@@ -3,15 +3,10 @@
 angular.module('hcl')
 
   .controller('DetailsCtrl', [
-    '$routeParams', 'FetchService',
-    function ($routeParams, fetchService) {
+    '$stateParams', 'FetchService',
+    function ($stateParams, fetchService) {
       var vm    = this;
-      vm.widget = fetchService.getWidget($routeParams.widgetId);
-      vm.remove = remove;
-      vm.closeSummary = closeSummary;
-      return vm;
+      vm.widget = fetchService.getWidget($stateParams.id);
 
-      function closeSummary(id) {
-        fetchService.remove(id);
-      }
+      return vm;
     }]);

@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('hcl')
-  .controller('EditCtrl', [
+  .controller('AddCtrl', [
     '$stateParams', 'FetchService', '$state',
     function ($stateParams, fetchService, $state) {
-      var vm         = this;
-      vm.widget      = fetchService.getWidget($stateParams.id);
+      var vm    = this;
+      vm.widget = { name: '', fields: [{order: 1, key: '', value: ''}] };
+
       vm.save        = save;
       vm.removeField = removeField;
       vm.addNewField = addNewField;
@@ -18,13 +19,16 @@ angular.module('hcl')
       }
 
       function addNewField() {
+        if (!vm.widget.fields)
+          vm.widget.fields = [];
+
         vm.widget.fields.push({ order: vm.widget.fields.length });
         vm.form.$setPristine();
       }
 
       function save() {
         var fields = vm.widget.fields.filter(f => f.key && f.value);
-        fetchService.updateWidget(vm.widget.id, vm.widget);
+        fetchService.updateWidget(0, vm.widget);
         $state.go('home');
       }
     }]);

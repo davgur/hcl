@@ -20,20 +20,20 @@ angular.module('hcl.service', [])
       function updateWidget(id, newVal) {
         var data = getWidgets();
         if (!id) {
-          save(data, newVal);
+          addNew(data, newVal);
         }
 
         var index = data.findIndex(w => w.id === id);
         if (index === -1)
           return { error: 'no same widget' };
 
-        data.splice(index, 1, newVal);
+        data[index] = newVal;
         save(data.filter(w => !!w));
       }
 
       function addNew(data, newVal) {
         data.sort((a, b) => a.id > b.id);
-        newVal.id = data[data.length - 1].id + 1;
+        newVal.id = data.length > 0 ? data[data.length - 1].id + 1 : 1;
         data.push(newVal);
         save(data);
       }

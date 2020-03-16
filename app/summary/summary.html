@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-header"><h1>main</h1></div>
+  <div class="card-body row">
+    <div class="col-sm-{{!vm.selectedId ? 3: 6}}" ng-repeat="widget in vm.widgets" ui-sref="widgets.details({id: widget.id})">
+      <widget-on-list widget="widget" is-selected="vm.selectedId === widget.id" />
+    </div>
+  </div>
+  <div class="card-footer">
+    <a ui-sref="add()" class="btn-primary btn-lg btn-block">Add new widget</a>
+  </div>
+</div>
